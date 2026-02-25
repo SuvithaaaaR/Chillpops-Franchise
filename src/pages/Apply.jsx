@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
 
 const Apply = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    investmentCapacity: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    investmentCapacity: "",
+    message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,12 +26,12 @@ const Apply = () => {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        city: '',
-        investmentCapacity: '',
-        message: '',
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        investmentCapacity: "",
+        message: "",
       });
     }, 5000);
   };
@@ -40,8 +40,12 @@ const Apply = () => {
     <div className="pt-20">
       <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
         <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Apply for Franchise</h1>
-          <p className="text-xl opacity-90">Start your ChillPops journey today</p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Apply for Franchise
+          </h1>
+          <p className="text-xl opacity-90">
+            Start your ChillPops journey today
+          </p>
         </div>
       </section>
 
@@ -54,13 +58,16 @@ const Apply = () => {
                 Application Submitted!
               </h3>
               <p className="text-gray-700">
-                Thank you for your interest. Our team will contact you within 24-48 hours.
+                Thank you for your interest. Our team will contact you within
+                24-48 hours.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Full Name *
+                </label>
                 <input
                   type="text"
                   name="name"
@@ -73,7 +80,9 @@ const Apply = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Email *</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Email *
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -86,7 +95,9 @@ const Apply = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Phone *</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Phone *
+                </label>
                 <input
                   type="tel"
                   name="phone"
@@ -99,7 +110,9 @@ const Apply = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Preferred City *</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Preferred City *
+                </label>
                 <input
                   type="text"
                   name="city"
@@ -112,7 +125,9 @@ const Apply = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Investment Capacity *</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Investment Capacity *
+                </label>
                 <select
                   name="investmentCapacity"
                   value={formData.investmentCapacity}
@@ -128,7 +143,9 @@ const Apply = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Message</label>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}

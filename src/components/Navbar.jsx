@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +11,8 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -20,20 +20,20 @@ const Navbar = () => {
   }, [location]);
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { path: '/franchise-model', label: 'Franchise Model' },
-    { path: '/locations', label: 'Locations' },
-    { path: '/apply', label: 'Apply Now' },
-    { path: '/contact', label: 'Contact' },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/franchise-model", label: "Franchise Model" },
+    { path: "/locations", label: "Locations" },
+    { path: "/apply", label: "Apply Now" },
+    { path: "/contact", label: "Contact" },
   ];
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-lg py-4'
-          : 'bg-white/95 backdrop-blur-sm py-5'
+          ? "bg-white shadow-lg py-4"
+          : "bg-white/95 backdrop-blur-sm py-5"
       }`}
     >
       <div className="container-custom">
@@ -56,8 +56,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`font-medium transition-colors duration-300 ${
                   location.pathname === link.path
-                    ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    ? "text-primary"
+                    : "text-gray-700 hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -84,8 +84,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`font-medium py-2 transition-colors duration-300 ${
                     location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-gray-700 hover:text-primary'
+                      ? "text-primary"
+                      : "text-gray-700 hover:text-primary"
                   }`}
                 >
                   {link.label}

@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
-import { FaMoneyBillWave, FaChartLine, FaStore } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaMoneyBillWave, FaChartLine, FaStore } from "react-icons/fa";
 
 const FranchiseModel = () => {
   return (
     <div className="pt-20">
       <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
         <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Franchise Model</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Franchise Model
+          </h1>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
             Transparent, profitable, and well-supported
           </p>
@@ -26,7 +28,9 @@ const FranchiseModel = () => {
             <div className="card text-center">
               <FaStore className="text-5xl text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-2">Space Required</h3>
-              <p className="text-3xl font-bold text-primary mb-2">200-400 sq ft</p>
+              <p className="text-3xl font-bold text-primary mb-2">
+                200-400 sq ft
+              </p>
               <p className="text-gray-600">Flexible formats</p>
             </div>
 

@@ -4,13 +4,12 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-screen flex items-center">
         {/* Background Image - Full Screen, No Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/homepage.png)',
+            backgroundImage: "url(/homepage.png)",
           }}
-        >
-        </div>
+        ></div>
       </section>
     </div>
   );

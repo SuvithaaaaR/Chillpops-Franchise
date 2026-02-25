@@ -1,4 +1,4 @@
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -6,7 +6,9 @@ const Contact = () => {
       <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
         <div className="container-custom text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl opacity-90">We're here to help you start your franchise journey</p>
+          <p className="text-xl opacity-90">
+            We're here to help you start your franchise journey
+          </p>
         </div>
       </section>
 
@@ -16,7 +18,9 @@ const Contact = () => {
             <div className="card text-center">
               <FaEnvelope className="text-5xl text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
-              <p className="text-primary font-semibold">franchise@chillpops.in</p>
+              <p className="text-primary font-semibold">
+                franchise@chillpops.in
+              </p>
               <p className="text-gray-600 text-sm">support@chillpops.in</p>
             </div>
 

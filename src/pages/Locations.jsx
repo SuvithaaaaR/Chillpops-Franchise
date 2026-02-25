@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Locations = () => {
   const locations = [
-    { city: 'Karur', outlets: 8 },
-    { city: 'Bangalore', outlets: 12 },
-    { city: 'Mumbai', outlets: 10 },
-    { city: 'Coimbatore', outlets: 6 },
-    { city: 'Trichy', outlets: 5 },
-    { city: 'Namakkal', outlets: 4 },
-    { city: 'Ongole', outlets: 3 },
-    { city: 'Tenali', outlets: 2 },
+    { city: "Karur", outlets: 8 },
+    { city: "Bangalore", outlets: 12 },
+    { city: "Mumbai", outlets: 10 },
+    { city: "Coimbatore", outlets: 6 },
+    { city: "Trichy", outlets: 5 },
+    { city: "Namakkal", outlets: 4 },
+    { city: "Ongole", outlets: 3 },
+    { city: "Tenali", outlets: 2 },
   ];
 
   return (
@@ -31,7 +31,9 @@ const Locations = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {location.city}
                 </h3>
-                <p className="text-primary font-semibold">{location.outlets} Outlets</p>
+                <p className="text-primary font-semibold">
+                  {location.outlets} Outlets
+                </p>
               </div>
             ))}
           </div>
