@@ -44,14 +44,18 @@ const Locations = () => {
       </section>
 
       {/* Parallax Scrolling Section */}
-      <section ref={parallaxRef} className="relative bg-gray-50" style={{ minHeight: `${locations.length * 100}vh` }}>
+      <section
+        ref={parallaxRef}
+        className="relative bg-gray-50"
+        style={{ minHeight: `${locations.length * 100}vh` }}
+      >
         {locations.map((location, index) => {
           const progress = scrollProgress * locations.length - index;
           const opacity = Math.max(0, Math.min(1, 1 - Math.abs(progress)));
           const scale = 0.8 + opacity * 0.2;
           const translateY = progress * -50;
           const pinProgress = Math.max(0, Math.min(1, progress + 0.5));
-          
+
           return (
             <div
               key={index}
@@ -77,7 +81,7 @@ const Locations = () => {
               <div
                 className={`relative w-[90%] max-w-2xl h-[60vh] rounded-3xl shadow-2xl bg-gradient-to-br ${location.color} p-12 flex flex-col items-center justify-center text-white`}
                 style={{
-                  transform: `rotateX(${(1 - opacity) * 10}deg) rotateY(${(progress) * 5}deg)`,
+                  transform: `rotateX(${(1 - opacity) * 10}deg) rotateY(${progress * 5}deg)`,
                   transformStyle: "preserve-3d",
                 }}
               >

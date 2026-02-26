@@ -28,7 +28,7 @@ const Home = () => {
         const progress = Math.min(Math.max(scrolled / height, 0), 1);
         setScrollProgress(progress);
       }
-      
+
       if (spaceRef.current) {
         const rect = spaceRef.current.getBoundingClientRect();
         const scrolled = -rect.top;
@@ -54,7 +54,7 @@ const Home = () => {
             backgroundImage: "url(/homepage.png)",
           }}
         ></div>
-        
+
         {/* Scroll Down Indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
           <div className="flex flex-col items-center text-white">
@@ -77,30 +77,33 @@ const Home = () => {
       </section>
 
       {/* Space Animation Section - Cosmic Journey */}
-      <section ref={spaceRef} className="relative min-h-[200vh] bg-gradient-to-b from-gray-900 via-purple-900 to-pink-900 overflow-hidden">
+      <section
+        ref={spaceRef}
+        className="relative min-h-[200vh] bg-gradient-to-b from-gray-900 via-purple-900 to-pink-900 overflow-hidden"
+      >
         {/* Floating Clouds */}
-        <div 
+        <div
           className="absolute w-full h-full pointer-events-none"
           style={{
             transform: `translateY(${spaceScroll * 300}px)`,
           }}
         >
           {/* Cloud 1 */}
-          <div 
+          <div
             className="absolute top-20 left-10 w-96 h-64 bg-white/10 rounded-full blur-3xl"
             style={{
               transform: `translateY(${spaceScroll * 150}px) scale(${1 + spaceScroll * 0.5})`,
             }}
           ></div>
           {/* Cloud 2 */}
-          <div 
+          <div
             className="absolute top-1/3 right-20 w-80 h-56 bg-purple-300/10 rounded-full blur-2xl"
             style={{
               transform: `translateY(${spaceScroll * -100}px) translateX(${spaceScroll * 50}px)`,
             }}
           ></div>
           {/* Cloud 3 */}
-          <div 
+          <div
             className="absolute bottom-1/4 left-1/4 w-72 h-48 bg-pink-300/10 rounded-full blur-3xl"
             style={{
               transform: `translateY(${spaceScroll * 200}px) scale(${1 - spaceScroll * 0.3})`,
@@ -130,7 +133,7 @@ const Home = () => {
         <div className="sticky top-0 h-screen flex items-center justify-center">
           <div className="relative z-10 text-center px-4">
             {/* Floating Astronaut/Rocket Icon */}
-            <div 
+            <div
               className="mb-8"
               style={{
                 transform: `translateY(${Math.sin(spaceScroll * 10) * 20}px) rotate(${spaceScroll * 360}deg)`,
@@ -140,23 +143,26 @@ const Home = () => {
             </div>
 
             {/* Main Title with Parallax */}
-            <div 
+            <div
               className="mb-6"
               style={{
                 opacity: 1 - spaceScroll * 1.5,
                 transform: `scale(${1 + spaceScroll * 0.5})`,
               }}
             >
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 drop-shadow-lg"
+              <h1
+                className="text-6xl md:text-8xl font-bold text-white mb-4 drop-shadow-lg"
                 style={{
-                  textShadow: '0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(147,51,234,0.5)',
+                  textShadow:
+                    "0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(147,51,234,0.5)",
                 }}
               >
                 A COSMIC
               </h1>
-              <h2 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400"
+              <h2
+                className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400"
                 style={{
-                  textShadow: '0 0 30px rgba(219,39,119,0.5)',
+                  textShadow: "0 0 30px rgba(219,39,119,0.5)",
                 }}
               >
                 SCROLL JOURNEY
@@ -164,19 +170,20 @@ const Home = () => {
             </div>
 
             {/* Subtitle */}
-            <div 
+            <div
               className="mb-8"
               style={{
                 opacity: Math.max(0, 1 - spaceScroll * 2),
               }}
             >
               <p className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto tracking-widest">
-                GET READY TO EMBARK ON A VOYAGE OF DELIGHT, FLAVOR AND CELEBRATION
+                GET READY TO EMBARK ON A VOYAGE OF DELIGHT, FLAVOR AND
+                CELEBRATION
               </p>
             </div>
 
             {/* CTA Button */}
-            <div 
+            <div
               style={{
                 opacity: Math.max(0, 1 - spaceScroll * 1.5),
               }}
@@ -186,14 +193,17 @@ const Home = () => {
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-2xl"
               >
                 START YOUR FRANCHISE
-                <FaStar className="animate-spin" style={{ animationDuration: '3s' }} />
+                <FaStar
+                  className="animate-spin"
+                  style={{ animationDuration: "3s" }}
+                />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Text Reveal Section */}
-        <div 
+        <div
           className="absolute bottom-32 left-0 right-0 text-center"
           style={{
             opacity: Math.min(1, spaceScroll * 3),
@@ -201,9 +211,15 @@ const Home = () => {
           }}
         >
           <div className="flex justify-center items-center gap-8 md:gap-16 flex-wrap px-4">
-            <h3 className="text-4xl md:text-6xl font-bold text-pink-300 drop-shadow-lg">FLAVOR</h3>
-            <h3 className="text-4xl md:text-6xl font-bold text-purple-300 drop-shadow-lg">MEETS</h3>
-            <h3 className="text-4xl md:text-6xl font-bold text-blue-300 drop-shadow-lg">DELIGHT</h3>
+            <h3 className="text-4xl md:text-6xl font-bold text-pink-300 drop-shadow-lg">
+              FLAVOR
+            </h3>
+            <h3 className="text-4xl md:text-6xl font-bold text-purple-300 drop-shadow-lg">
+              MEETS
+            </h3>
+            <h3 className="text-4xl md:text-6xl font-bold text-blue-300 drop-shadow-lg">
+              DELIGHT
+            </h3>
           </div>
         </div>
 
@@ -212,14 +228,18 @@ const Home = () => {
       </section>
 
       {/* Parallax Scrolling Locations Section */}
-      <section ref={parallaxRef} className="relative bg-gray-50" style={{ minHeight: `${locations.length * 100}vh` }}>
+      <section
+        ref={parallaxRef}
+        className="relative bg-gray-50"
+        style={{ minHeight: `${locations.length * 100}vh` }}
+      >
         {locations.map((location, index) => {
           const progress = scrollProgress * locations.length - index;
           const opacity = Math.max(0, Math.min(1, 1 - Math.abs(progress)));
           const scale = 0.8 + opacity * 0.2;
           const translateY = progress * -50;
           const pinProgress = Math.max(0, Math.min(1, progress + 0.5));
-          
+
           return (
             <div
               key={index}
@@ -245,7 +265,7 @@ const Home = () => {
               <div
                 className={`relative w-[90%] max-w-2xl h-[60vh] rounded-3xl shadow-2xl bg-gradient-to-br ${location.color} p-12 flex flex-col items-center justify-center text-white`}
                 style={{
-                  transform: `rotateX(${(1 - opacity) * 10}deg) rotateY(${(progress) * 5}deg)`,
+                  transform: `rotateX(${(1 - opacity) * 10}deg) rotateY(${progress * 5}deg)`,
                   transformStyle: "preserve-3d",
                 }}
               >
@@ -306,7 +326,10 @@ const Home = () => {
           <p className="text-xl md:text-2xl mb-8 opacity-90">
             Be part of India's fastest-growing ice cream franchise
           </p>
-          <Link to="/apply" className="inline-block bg-white text-primary font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+          <Link
+            to="/apply"
+            className="inline-block bg-white text-primary font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+          >
             Apply for Franchise
           </Link>
         </div>
