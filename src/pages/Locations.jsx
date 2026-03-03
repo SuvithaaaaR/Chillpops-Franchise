@@ -34,12 +34,12 @@ const Locations = () => {
   }, []);
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
-        <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Locations</h1>
-          <p className="text-xl opacity-90">50+ outlets across 8 cities</p>
+        <div className="container-custom text-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">Our Locations</h1>
+          <p className="text-base md:text-xl opacity-90">50+ outlets across 8 cities</p>
         </div>
       </section>
 
@@ -68,13 +68,13 @@ const Locations = () => {
             >
               {/* Animated Location Pin */}
               <div
-                className="absolute top-20 animate-bounce"
+                className="absolute top-16 md:top-20 animate-bounce"
                 style={{
                   opacity: opacity,
                   transform: `translateY(${pinProgress * 20}px)`,
                 }}
               >
-                <FaMapMarkerAlt className="text-6xl md:text-8xl text-red-500 drop-shadow-lg" />
+                <FaMapMarkerAlt className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-red-500 drop-shadow-lg" />
               </div>
 
               {/* Location Card */}

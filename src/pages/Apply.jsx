@@ -37,33 +37,33 @@ const Apply = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
-        <div className="container-custom text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="container-custom text-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             Apply for Franchise
           </h1>
-          <p className="text-xl opacity-90">
+          <p className="text-base md:text-xl opacity-90">
             Start your ChillPops journey today
           </p>
         </div>
       </section>
 
       <section className="section-padding bg-white">
-        <div className="container-custom max-w-2xl">
+        <div className="container-custom max-w-2xl px-4">
           {isSubmitted ? (
-            <div className="card bg-green-50 border-2 border-green-500 p-8 text-center">
-              <FaCheckCircle className="text-6xl text-green-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="card bg-green-50 border-2 border-green-500 p-6 md:p-8 text-center">
+              <FaCheckCircle className="text-5xl md:text-6xl text-green-500 mx-auto mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                 Application Submitted!
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-sm md:text-base">
                 Thank you for your interest. Our team will contact you within
                 24-48 hours.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Full Name *

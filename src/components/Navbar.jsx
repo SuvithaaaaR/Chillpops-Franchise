@@ -62,7 +62,7 @@ const Navbar = () => {
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Chill Pops Logo"
-              className="h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
+              className="h-12 md:h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
           </a>
 

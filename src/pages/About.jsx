@@ -98,53 +98,53 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Brand Image Section - Full Screen */}
       <section
-        className="h-screen bg-cover bg-center bg-no-repeat"
+        className="h-[60vh] sm:h-[70vh] md:h-screen bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}about.png)`,
         }}
       ></section>
 
       {/* Stats Section - Continuous */}
-      <section className="py-16 bg-white">
+      <section className="py-10 md:py-16 bg-white">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary to-pink-600 text-white">
-              <FaStore className="text-5xl mx-auto mb-4" />
-              <div className="text-5xl font-bold mb-2">{counters.outlets}+</div>
-              <div className="text-lg opacity-90">Outlets</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+            <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary to-pink-600 text-white">
+              <FaStore className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.outlets}+</div>
+              <div className="text-sm md:text-lg opacity-90">Outlets</div>
             </div>
-            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-purple-600 to-indigo-600 text-white">
-              <FaUsers className="text-5xl mx-auto mb-4" />
-              <div className="text-5xl font-bold mb-2">{counters.cities}+</div>
-              <div className="text-lg opacity-90">Cities</div>
+            <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-purple-600 to-indigo-600 text-white">
+              <FaUsers className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.cities}+</div>
+              <div className="text-sm md:text-lg opacity-90">Cities</div>
             </div>
-            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-orange-500 to-pink-600 text-white">
-              <FaAward className="text-5xl mx-auto mb-4" />
-              <div className="text-5xl font-bold mb-2">
+            <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-orange-500 to-pink-600 text-white">
+              <FaAward className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">
                 {counters.customers.toLocaleString()}+
               </div>
-              <div className="text-lg opacity-90">Customers</div>
+              <div className="text-sm md:text-lg opacity-90">Customers</div>
             </div>
-            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-teal-500 to-green-600 text-white">
-              <FaChartLine className="text-5xl mx-auto mb-4" />
-              <div className="text-5xl font-bold mb-2">{counters.years}+</div>
-              <div className="text-lg opacity-90">Years</div>
+            <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-teal-500 to-green-600 text-white">
+              <FaChartLine className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.years}+</div>
+              <div className="text-sm md:text-lg opacity-90">Years</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Our Story Section - Continuous */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-10 md:py-16 bg-gray-50">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-8 text-center">
               Our Story
             </h2>
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-700 leading-relaxed">
               <p>
                 ChillPops began in 2020 with a simple yet powerful dream: to
                 create a frozen dessert brand that combines{" "}

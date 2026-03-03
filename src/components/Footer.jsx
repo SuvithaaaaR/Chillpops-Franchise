@@ -9,67 +9,61 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+const Footer = () => {\n  const currentYear = new Date().getFullYear();\n\n  return (\n    <footer className=\"bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white\">\n      <div className=\"container-custom section-padding\">\n        <div className=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12\">
           {/* Brand Section */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg md:text-xl">C</span>
               </div>
-              <span className="text-2xl font-bold">
+              <span className="text-xl md:text-2xl font-bold">
                 Chill<span className="text-primary">Pops</span>
               </span>
             </div>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 text-sm md:text-base">
               Own the Cool. Start your ChillPops franchise today and be part of
               India's fastest-growing frozen dessert brand.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 md:space-x-4">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
               >
-                <FaFacebookF />
+                <FaFacebookF className="text-sm md:text-base" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
               >
-                <FaInstagram />
+                <FaInstagram className="text-sm md:text-base" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
               >
-                <FaTwitter />
+                <FaTwitter className="text-sm md:text-base" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-300"
               >
-                <FaYoutube />
+                <FaYoutube className="text-sm md:text-base" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
                   to="/"

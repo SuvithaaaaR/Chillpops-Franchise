@@ -261,7 +261,7 @@ const Home = () => {
       >
         {/* Decorative Strawberry Splash - Top Right */}
         <div
-          className="absolute top-0 right-0 w-64 md:w-96 lg:w-[500px] opacity-90 pointer-events-none"
+          className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 lg:w-96 xl:w-[500px] opacity-90 pointer-events-none"
           style={{
             zIndex: 1,
           }}
@@ -275,7 +275,7 @@ const Home = () => {
 
         {/* Decorative Cookies - Bottom Left */}
         <div
-          className="absolute bottom-8 left-0 w-32 md:w-40 lg:w-48 opacity-90 pointer-events-none"
+          className="absolute bottom-8 left-0 w-20 sm:w-28 md:w-32 lg:w-40 xl:w-48 opacity-90 pointer-events-none"
           style={{
             zIndex: 1,
           }}
@@ -293,10 +293,10 @@ const Home = () => {
             <div className="space-y-8">
               {/* Section Title */}
               <div className="space-y-4 animate-fade-in-up">
-                <p className="text-[#C9A581] text-lg font-medium tracking-wider uppercase">
+                <p className="text-[#C9A581] text-base md:text-lg font-medium tracking-wider uppercase">
                   About Us
                 </p>
-                <h2 className="text-5xl md:text-6xl font-bold text-[#121D23] leading-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#121D23] leading-tight">
                   <span className="block">Naturally Crafted</span>
                   <span className="block">Ice Cream</span>
                   <span className="block">Delight</span>
@@ -305,7 +305,7 @@ const Home = () => {
 
               {/* Description */}
               <div
-                className="space-y-4 text-lg leading-relaxed animate-fade-in-up"
+                className="space-y-4 text-base md:text-lg leading-relaxed animate-fade-in-up"
                 style={{ animationDelay: "0.1s", color: "#495057" }}
               >
                 <p>
@@ -348,7 +348,7 @@ const Home = () => {
                 <img
                   src={`${import.meta.env.BASE_URL}aboutimage.png`}
                   alt="ChillPops Storefront"
-                  className="w-full h-[750px] object-cover transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 cursor-pointer"
+                  className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[750px] object-cover transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 cursor-pointer"
                 />
               </div>
             </div>
@@ -356,7 +356,7 @@ const Home = () => {
         </div>
       </section>
     </div>
-  ); 
+  );
 };
 
 export default Home;
