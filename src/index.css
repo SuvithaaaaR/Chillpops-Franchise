@@ -3,6 +3,56 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Global Color Variables */
+    --e-global-color-primary: #ffffff;
+    --e-global-color-secondary: #121d23;
+    --e-global-color-text: #cecece;
+    --e-global-color-accent: #c9a581;
+    --e-global-color-accentsecondary: #e4ccb4;
+    --e-global-color-white: #ffffff;
+    --e-global-color-black: #000000;
+    --e-global-color-divider: #ffffff24;
+    --e-global-color-darkdivider: #ffffff1a;
+
+    /* Global Typography Variables */
+    --e-global-typography-primary-font-family: "Forum";
+    --e-global-typography-primary-font-size: 44px;
+    --e-global-typography-primary-font-weight: 400;
+    --e-global-typography-primary-line-height: 1.2em;
+    --e-global-typography-secondary-font-family: "Jost";
+    --e-global-typography-secondary-font-size: 22px;
+    --e-global-typography-secondary-font-weight: 500;
+    --e-global-typography-secondary-line-height: 1.2em;
+    --e-global-typography-text-font-family: "Jost";
+    --e-global-typography-text-font-size: 18px;
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-text-line-height: 1.6em;
+    --e-global-typography-accent-font-family: "Jost";
+    --e-global-typography-accent-font-size: 16px;
+    --e-global-typography-accent-font-weight: 500;
+    --e-global-typography-accent-line-height: 1em;
+
+    /* Container Variables */
+    --container-max-width: 1300px;
+    --widgets-spacing: 20px 20px;
+    --widgets-spacing-row: 20px;
+    --widgets-spacing-column: 20px;
+
+    /* Border Radius */
+    --border-radius: 0;
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-xxl: 2rem;
+
+    /* Transitions */
+    --background-transition: 0.3s;
+    --border-transition: 0.3s;
+    --overlay-transition: 0.3s;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -128,6 +178,18 @@
   .marquee-item svg {
     color: #c9a581;
     font-size: 1rem;
+  }
+
+  /* About Section Image Hover Effect */
+  .about-image-hover {
+    transition:
+      transform 0.5s ease-in-out,
+      filter 0.5s ease-in-out;
+  }
+
+  .about-image-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
   }
 
   .btn-primary {
