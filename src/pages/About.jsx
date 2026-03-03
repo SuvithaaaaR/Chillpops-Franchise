@@ -100,13 +100,12 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Brand Image Section - Full Screen */}
-      <section 
+      <section
         className="h-screen bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url(/about.png)",
         }}
-      >
-      </section>
+      ></section>
 
       {/* Stats Section - Continuous */}
       <section className="py-16 bg-white">
@@ -214,10 +213,7 @@ const About = () => {
           </h2>
           <div className="max-w-4xl mx-auto">
             {milestones.map((milestone, index) => (
-              <div
-                key={index}
-                className="flex gap-6 mb-8 group"
-              >
+              <div key={index} className="flex gap-6 mb-8 group">
                 <div className="flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {milestone.year}

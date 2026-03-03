@@ -177,7 +177,10 @@ const Home = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section id="home" className="relative overflow-hidden min-h-screen flex items-center">
+      <section
+        id="home"
+        className="relative overflow-hidden min-h-screen flex items-center"
+      >
         {/* Background Image - Full Screen, No Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
@@ -483,12 +486,13 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      <section
+        id="about"
+        className="h-screen bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
           backgroundImage: "url(/about.png)",
         }}
-      >
-      </section>
+      ></section>
 
       {/* Stats Section */}
       <section className="py-16 bg-white">
@@ -609,7 +613,10 @@ const Home = () => {
       </section>
 
       {/* Franchise Model Section */}
-      <section id="franchise-model" className="py-20 bg-gradient-to-br from-primary to-pink-600 text-white">
+      <section
+        id="franchise-model"
+        className="py-20 bg-gradient-to-br from-primary to-pink-600 text-white"
+      >
         <div className="container-custom text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Franchise Model
@@ -623,14 +630,18 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="card text-center bg-white">
               <FaMoneyBillWave className="text-5xl text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Total Investment</h3>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                Total Investment
+              </h3>
               <p className="text-3xl font-bold text-primary mb-2">₹5-8 Lakhs</p>
               <p className="text-gray-600">All-inclusive</p>
             </div>
 
             <div className="card text-center bg-white">
               <FaStore className="text-5xl text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Space Required</h3>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                Space Required
+              </h3>
               <p className="text-3xl font-bold text-primary mb-2">
                 200-400 sq ft
               </p>
@@ -639,7 +650,9 @@ const Home = () => {
 
             <div className="card text-center bg-white">
               <FaChartLine className="text-5xl text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Expected ROI</h3>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                Expected ROI
+              </h3>
               <p className="text-3xl font-bold text-primary mb-2">40-50%</p>
               <p className="text-gray-600">Within 18-24 months</p>
             </div>
@@ -776,9 +789,14 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section
+        id="contact"
+        className="py-20 bg-gradient-to-br from-gray-50 to-white"
+      >
         <div className="container-custom text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Contact Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            Contact Us
+          </h1>
           <p className="text-xl text-gray-600">
             We're here to help you start your franchise journey
           </p>

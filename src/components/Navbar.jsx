@@ -9,9 +9,16 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
+
       // Update active section based on scroll position
-      const sections = ["#home", "#about", "#franchise-model", "#locations", "#apply", "#contact"];
+      const sections = [
+        "#home",
+        "#about",
+        "#franchise-model",
+        "#locations",
+        "#apply",
+        "#contact",
+      ];
       for (const section of sections) {
         const element = document.querySelector(section);
         if (element) {
