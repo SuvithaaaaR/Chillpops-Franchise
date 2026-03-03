@@ -103,7 +103,7 @@ const About = () => {
       <section
         className="h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/about.png)",
+          backgroundImage: `url(${import.meta.env.BASE_URL}about.png)`,
         }}
       ></section>
 

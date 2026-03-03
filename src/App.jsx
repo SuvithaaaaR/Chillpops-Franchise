@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Router basename="/Chillpops-Franchise">
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">

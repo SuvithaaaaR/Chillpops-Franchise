@@ -188,7 +188,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
           style={{
-            backgroundImage: "url(/homepage.png)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}homepage.png)`,
           }}
         ></div>
 
@@ -267,7 +267,7 @@ const Home = () => {
           }}
         >
           <img
-            src="/images/stawberry-splash.png"
+            src={`${import.meta.env.BASE_URL}images/stawberry-splash.png`}
             alt="Strawberry Splash"
             className="w-full h-auto"
           />
@@ -281,7 +281,7 @@ const Home = () => {
           }}
         >
           <img
-            src="/images/cookies.png"
+            src={`${import.meta.env.BASE_URL}images/cookies.png`}
             alt="Cookies"
             className="w-full h-auto"
           />
@@ -346,7 +346,7 @@ const Home = () => {
                 }}
               >
                 <img
-                  src="/aboutimage.png"
+                  src={`${import.meta.env.BASE_URL}aboutimage.png`}
                   alt="ChillPops Storefront"
                   className="w-full h-[750px] object-cover transition-all duration-500 ease-in-out hover:scale-105 hover:brightness-110 cursor-pointer"
                 />

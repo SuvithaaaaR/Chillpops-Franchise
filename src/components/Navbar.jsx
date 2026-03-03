@@ -60,7 +60,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#home" className="flex items-center group">
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Chill Pops Logo"
               className="h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
             />
