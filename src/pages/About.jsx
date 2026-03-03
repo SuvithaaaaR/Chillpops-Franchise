@@ -17,12 +17,8 @@ const About = () => {
     customers: 0,
     years: 0,
   });
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
-
-    // Animate counters
     const duration = 2000;
     const steps = 60;
     const interval = duration / steps;
@@ -103,32 +99,17 @@ const About = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative section-padding bg-gradient-to-br from-primary via-pink-600 to-purple-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div
-            className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"
-            style={{ animationDelay: "1s" }}
-          ></div>
-        </div>
-        <div
-          className={`container-custom text-center relative z-10 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp">
-            About ChillPops
-          </h1>
-          <p
-            className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto animate-fadeInUp"
-            style={{ animationDelay: "0.2s" }}
-          >
-            Bringing premium frozen desserts to every corner of India
-          </p>
-        </div>
+      {/* Brand Image Section - Full Screen */}
+      <section 
+        className="h-screen bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url(/about.png)",
+        }}
+      >
       </section>
 
-      {/* Stats Section */}
-      <section className="section-padding bg-white -mt-20 relative z-20">
+      {/* Stats Section - Continuous */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary to-pink-600 text-white">
@@ -157,31 +138,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* Brand Image Section */}
-      <section className="section-padding bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <div className="max-w-6xl mx-auto">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-600 to-pink-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-              <img
-                src="/about.png"
-                alt="Welcome to ChillPops"
-                className="relative w-full h-auto rounded-lg shadow-2xl transform transition duration-500 group-hover:scale-[1.02]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="section-padding bg-gray-50">
+      {/* Our Story Section - Continuous */}
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
               Our Story
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-              <p className="animate-fadeInUp">
+              <p>
                 ChillPops began in 2020 with a simple yet powerful dream: to
                 create a frozen dessert brand that combines{" "}
                 <span className="text-primary font-semibold">
@@ -190,10 +155,7 @@ const About = () => {
                 . We believed that everyone deserves to enjoy naturally crafted,
                 delicious ice cream.
               </p>
-              <p
-                className="animate-fadeInUp"
-                style={{ animationDelay: "0.2s" }}
-              >
+              <p>
                 What started as a single outlet in Karur has now blossomed into
                 a{" "}
                 <span className="text-primary font-semibold">
@@ -203,10 +165,7 @@ const About = () => {
                 our commitment to quality, innovation, and customer
                 satisfaction.
               </p>
-              <p
-                className="animate-fadeInUp"
-                style={{ animationDelay: "0.4s" }}
-              >
+              <p>
                 Today, ChillPops is more than just ice cream and popsicles –
                 it's a
                 <span className="text-primary font-semibold">
@@ -222,8 +181,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="section-padding bg-white">
+      {/* Values Section - Continuous */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
             Our Values
@@ -233,7 +192,6 @@ const About = () => {
               <div
                 key={index}
                 className="card p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 group cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-primary mb-4 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   {value.icon}
@@ -248,8 +206,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+      {/* Timeline Section - Continuous */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container-custom">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
             Our Journey
@@ -258,8 +216,7 @@ const About = () => {
             {milestones.map((milestone, index) => (
               <div
                 key={index}
-                className="flex gap-6 mb-8 group animate-fadeInUp"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="flex gap-6 mb-8 group"
               >
                 <div className="flex flex-col items-center">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -283,8 +240,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-primary via-pink-600 to-purple-600 text-white">
+      {/* CTA Section - Continuous */}
+      <section className="py-16 bg-gradient-to-r from-primary via-pink-600 to-purple-600 text-white">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Join the ChillPops Family

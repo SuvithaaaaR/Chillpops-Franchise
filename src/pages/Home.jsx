@@ -1,6 +1,20 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaStar, FaRocket } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaStar,
+  FaRocket,
+  FaStore,
+  FaUsers,
+  FaAward,
+  FaHeart,
+  FaLeaf,
+  FaHandshake,
+  FaChartLine,
+  FaMoneyBillWave,
+  FaEnvelope,
+  FaPhone,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const Home = () => {
   const locations = [
@@ -16,6 +30,21 @@ const Home = () => {
 
   const [scrollProgress, setScrollProgress] = useState(0);
   const [spaceScroll, setSpaceScroll] = useState(0);
+  const [counters, setCounters] = useState({
+    outlets: 0,
+    cities: 0,
+    customers: 0,
+    years: 0,
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    investmentCapacity: "",
+    message: "",
+  });
   const parallaxRef = useRef(null);
   const spaceRef = useRef(null);
 
@@ -43,13 +72,115 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+
+    const targets = { outlets: 50, cities: 8, customers: 100000, years: 4 };
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setCounters({
+        outlets: Math.floor(targets.outlets * progress),
+        cities: Math.floor(targets.cities * progress),
+        customers: Math.floor(targets.customers * progress),
+        years: Math.floor(targets.years * progress),
+      });
+
+      if (currentStep >= steps) {
+        setCounters(targets);
+        clearInterval(timer);
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        investmentCapacity: "",
+        message: "",
+      });
+    }, 5000);
+  };
+
+  const values = [
+    {
+      icon: <FaHeart className="text-4xl" />,
+      title: "Quality First",
+      description:
+        "Premium ingredients, naturally crafted ice cream that delights every customer",
+    },
+    {
+      icon: <FaLeaf className="text-4xl" />,
+      title: "Natural Ingredients",
+      description:
+        "100% natural flavors with no artificial colors or preservatives",
+    },
+    {
+      icon: <FaStar className="text-4xl" />,
+      title: "Innovation",
+      description:
+        "Constantly creating new flavors and experiences for our customers",
+    },
+    {
+      icon: <FaHandshake className="text-4xl" />,
+      title: "Partnership",
+      description:
+        "Building sustainable and profitable relationships with our franchisees",
+    },
+  ];
+
+  const milestones = [
+    {
+      year: "2020",
+      title: "Foundation",
+      desc: "ChillPops was born with a vision to revolutionize frozen desserts",
+    },
+    {
+      year: "2021",
+      title: "Expansion",
+      desc: "Opened 15 outlets across 3 cities",
+    },
+    { year: "2022", title: "Growth", desc: "Reached 30 outlets in 5 cities" },
+    {
+      year: "2023",
+      title: "Recognition",
+      desc: "Awarded 'Best Emerging Ice Cream Brand'",
+    },
+    {
+      year: "2024",
+      title: "Scale",
+      desc: "50+ outlets across 8 cities, 100K+ happy customers",
+    },
+  ];
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-screen flex items-center">
+      <section id="home" className="relative overflow-hidden min-h-screen flex items-center">
         {/* Background Image - Full Screen, No Overlay */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
           style={{
             backgroundImage: "url(/homepage.png)",
           }}
@@ -75,6 +206,39 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Location Marquee Ticker */}
+      <div className="marquee-container">
+        <div className="marquee-content">
+          {/* First set of locations */}
+          <div className="flex">
+            {locations.map((location, index) => (
+              <div key={`set1-${index}`} className="marquee-item">
+                <FaStar className="text-yellow-300" />
+                <span>{location.city.toUpperCase()}</span>
+              </div>
+            ))}
+          </div>
+          {/* Duplicate set for seamless loop */}
+          <div className="flex">
+            {locations.map((location, index) => (
+              <div key={`set2-${index}`} className="marquee-item">
+                <FaStar className="text-yellow-300" />
+                <span>{location.city.toUpperCase()}</span>
+              </div>
+            ))}
+          </div>
+          {/* Third set for extra smoothness */}
+          <div className="flex">
+            {locations.map((location, index) => (
+              <div key={`set3-${index}`} className="marquee-item">
+                <FaStar className="text-yellow-300" />
+                <span>{location.city.toUpperCase()}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Space Animation Section - Cosmic Journey */}
       <section
@@ -188,8 +352,8 @@ const Home = () => {
                 opacity: Math.max(0, 1 - spaceScroll * 1.5),
               }}
             >
-              <Link
-                to="/apply"
+              <a
+                href="#apply"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-2xl"
               >
                 START YOUR FRANCHISE
@@ -197,7 +361,7 @@ const Home = () => {
                   className="animate-spin"
                   style={{ animationDuration: "3s" }}
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -229,6 +393,7 @@ const Home = () => {
 
       {/* Parallax Scrolling Locations Section */}
       <section
+        id="locations"
         ref={parallaxRef}
         className="relative bg-gray-50"
         style={{ minHeight: `${locations.length * 100}vh` }}
@@ -317,8 +482,338 @@ const Home = () => {
         })}
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-pink-600 text-white">
+      {/* About Section */}
+      <section id="about" className="h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: "url(/about.png)",
+        }}
+      >
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary to-pink-600 text-white">
+              <FaStore className="text-5xl mx-auto mb-4" />
+              <div className="text-5xl font-bold mb-2">{counters.outlets}+</div>
+              <div className="text-lg opacity-90">Outlets</div>
+            </div>
+            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-purple-600 to-indigo-600 text-white">
+              <FaUsers className="text-5xl mx-auto mb-4" />
+              <div className="text-5xl font-bold mb-2">{counters.cities}+</div>
+              <div className="text-lg opacity-90">Cities</div>
+            </div>
+            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-orange-500 to-pink-600 text-white">
+              <FaAward className="text-5xl mx-auto mb-4" />
+              <div className="text-5xl font-bold mb-2">
+                {counters.customers.toLocaleString()}+
+              </div>
+              <div className="text-lg opacity-90">Customers</div>
+            </div>
+            <div className="card text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-teal-500 to-green-600 text-white">
+              <FaChartLine className="text-5xl mx-auto mb-4" />
+              <div className="text-5xl font-bold mb-2">{counters.years}+</div>
+              <div className="text-lg opacity-90">Years</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+              Our Story
+            </h2>
+            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <p>
+                ChillPops began in 2020 with a simple yet powerful dream: to
+                create a frozen dessert brand that combines{" "}
+                <span className="text-primary font-semibold">
+                  premium quality with affordable pricing
+                </span>
+                . We believed that everyone deserves to enjoy naturally crafted,
+                delicious ice cream.
+              </p>
+              <p>
+                What started as a single outlet in Karur has now blossomed into
+                a{" "}
+                <span className="text-primary font-semibold">
+                  thriving network of 50+ outlets
+                </span>{" "}
+                across 8 major cities in India. Our journey has been fueled by
+                our commitment to quality, innovation, and customer
+                satisfaction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Our Values
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className="card p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 group cursor-pointer"
+              >
+                <div className="text-primary mb-4 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  {value.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journey Timeline */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container-custom">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Our Journey
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            {milestones.map((milestone, index) => (
+              <div key={index} className="flex gap-6 mb-8 group">
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    {milestone.year}
+                  </div>
+                  {index < milestones.length - 1 && (
+                    <div className="w-1 h-full bg-gradient-to-b from-primary to-pink-300 mt-2"></div>
+                  )}
+                </div>
+                <div className="flex-1 pb-8">
+                  <div className="card p-6 hover:shadow-xl transition-all duration-300 hover:translate-x-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-gray-600">{milestone.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Franchise Model Section */}
+      <section id="franchise-model" className="py-20 bg-gradient-to-br from-primary to-pink-600 text-white">
+        <div className="container-custom text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Franchise Model
+          </h1>
+          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+            Transparent, profitable, and well-supported
+          </p>
+        </div>
+
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="card text-center bg-white">
+              <FaMoneyBillWave className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Total Investment</h3>
+              <p className="text-3xl font-bold text-primary mb-2">₹5-8 Lakhs</p>
+              <p className="text-gray-600">All-inclusive</p>
+            </div>
+
+            <div className="card text-center bg-white">
+              <FaStore className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Space Required</h3>
+              <p className="text-3xl font-bold text-primary mb-2">
+                200-400 sq ft
+              </p>
+              <p className="text-gray-600">Flexible formats</p>
+            </div>
+
+            <div className="card text-center bg-white">
+              <FaChartLine className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Expected ROI</h3>
+              <p className="text-3xl font-bold text-primary mb-2">40-50%</p>
+              <p className="text-gray-600">Within 18-24 months</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Apply Section */}
+      <section id="apply" className="py-20 bg-white">
+        <div className="container-custom text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            Apply for Franchise
+          </h1>
+          <p className="text-xl text-gray-600">
+            Start your ChillPops journey today
+          </p>
+        </div>
+
+        <div className="container-custom max-w-2xl">
+          {isSubmitted ? (
+            <div className="card bg-green-50 border-2 border-green-500 p-8 text-center">
+              <FaCheckCircle className="text-6xl text-green-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Application Submitted!
+              </h3>
+              <p className="text-gray-700">
+                Thank you for your interest. Our team will contact you within
+                24-48 hours.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Phone *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="10-digit mobile number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Preferred City *
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="Your city"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Investment Capacity *
+                </label>
+                <select
+                  name="investmentCapacity"
+                  value={formData.investmentCapacity}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                >
+                  <option value="">Select Range</option>
+                  <option value="5-8">₹5-8 Lakhs</option>
+                  <option value="8-10">₹8-10 Lakhs</option>
+                  <option value="10+">Above ₹10 Lakhs</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="4"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="Tell us about your franchise plans..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-primary to-pink-600 text-white font-bold text-lg px-8 py-4 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg"
+              >
+                Submit Application
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container-custom text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Contact Us</h1>
+          <p className="text-xl text-gray-600">
+            We're here to help you start your franchise journey
+          </p>
+        </div>
+
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="card text-center">
+              <FaEnvelope className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Email Us</h3>
+              <p className="text-primary font-semibold">
+                franchise@chillpops.in
+              </p>
+              <p className="text-gray-600 text-sm">support@chillpops.in</p>
+            </div>
+
+            <div className="card text-center">
+              <FaPhone className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Call Us</h3>
+              <p className="text-primary font-semibold">+91 98765 43210</p>
+              <p className="text-gray-600 text-sm">Mon-Sat, 9AM-7PM</p>
+            </div>
+
+            <div className="card text-center">
+              <FaMapMarkerAlt className="text-5xl text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Visit Us</h3>
+              <p className="text-primary font-semibold">www.chillpops.in</p>
+              <p className="text-gray-600 text-sm">Head Office: Karur</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-primary to-pink-600 text-white">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Join Our Success Story?
@@ -326,12 +821,12 @@ const Home = () => {
           <p className="text-xl md:text-2xl mb-8 opacity-90">
             Be part of India's fastest-growing ice cream franchise
           </p>
-          <Link
-            to="/apply"
+          <a
+            href="#apply"
             className="inline-block bg-white text-primary font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
           >
             Apply for Franchise
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -1,31 +1,43 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = ["#home", "#about", "#franchise-model", "#locations", "#apply", "#contact"];
+      for (const section of sections) {
+        const element = document.querySelector(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+  const handleNavClick = () => {
     setIsOpen(false);
-  }, [location]);
+  };
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
-    { path: "/franchise-model", label: "Franchise Model" },
-    { path: "/locations", label: "Locations" },
-    { path: "/apply", label: "Apply Now" },
-    { path: "/contact", label: "Contact" },
+    { path: "#home", label: "Home" },
+    { path: "#about", label: "About Us" },
+    { path: "#franchise-model", label: "Franchise Model" },
+    { path: "#locations", label: "Locations" },
+    { path: "#apply", label: "Apply Now" },
+    { path: "#contact", label: "Contact" },
   ];
 
   return (
@@ -39,29 +51,29 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">C</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-800">
-              Chill<span className="text-primary">Pops</span>
-            </span>
-          </Link>
+          <a href="#home" className="flex items-center group">
+            <img
+              src="/logo.png"
+              alt="Chill Pops Logo"
+              className="h-16 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.path}
-                to={link.path}
+                href={link.path}
+                onClick={handleNavClick}
                 className={`font-medium transition-colors duration-300 ${
-                  location.pathname === link.path
+                  activeSection === link.path
                     ? "text-primary"
                     : "text-gray-700 hover:text-primary"
                 }`}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -79,17 +91,18 @@ const Navbar = () => {
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
+                  onClick={handleNavClick}
                   className={`font-medium py-2 transition-colors duration-300 ${
-                    location.pathname === link.path
+                    activeSection === link.path
                       ? "text-primary"
                       : "text-gray-700 hover:text-primary"
                   }`}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
