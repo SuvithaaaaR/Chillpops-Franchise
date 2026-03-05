@@ -212,7 +212,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Location Marquee Ticker */}
       <div className="marquee-container">
         <div className="marquee-content">
@@ -245,7 +244,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* About Us Section */}
       <section
         id="about"
@@ -353,8 +351,29 @@ const Home = () => {
               </div>
             </div>
           </div>
+          3015250{" "}
         </div>
       </section>
+      {/* Franchise Locations Background Section */}
+      <section id="locations-background" className="relative py-0">
+        {/* First Background Image */}
+        <div className="w-full">
+          <img
+            src={`${import.meta.env.BASE_URL}images/franchise-locations-1.png`}
+            alt="ChillPops Franchise Locations - Map 1"
+            className="w-full h-auto display-block"
+          />
+        </div>
+
+        {/* Second Background Image */}
+        <div className="w-full">
+          <img
+            src={`${import.meta.env.BASE_URL}images/franchise-locations-2.png`}
+            alt="ChillPops Franchise Locations - Map 2"
+            className="w-full h-auto display-block"
+          />
+        </div>
+      </section>{" "}
     </div>
   );
 };

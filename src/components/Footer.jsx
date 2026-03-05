@@ -9,7 +9,13 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-const Footer = () => {\n  const currentYear = new Date().getFullYear();\n\n  return (\n    <footer className=\"bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white\">\n      <div className=\"container-custom section-padding\">\n        <div className=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12\">
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      <div className="container-custom section-padding">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Section */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">

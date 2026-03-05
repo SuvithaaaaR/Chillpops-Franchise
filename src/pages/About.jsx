@@ -113,12 +113,16 @@ const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary to-pink-600 text-white">
               <FaStore className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
-              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.outlets}+</div>
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">
+                {counters.outlets}+
+              </div>
               <div className="text-sm md:text-lg opacity-90">Outlets</div>
             </div>
             <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-purple-600 to-indigo-600 text-white">
               <FaUsers className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
-              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.cities}+</div>
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">
+                {counters.cities}+
+              </div>
               <div className="text-sm md:text-lg opacity-90">Cities</div>
             </div>
             <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-orange-500 to-pink-600 text-white">
@@ -130,7 +134,9 @@ const About = () => {
             </div>
             <div className="card text-center p-4 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-teal-500 to-green-600 text-white">
               <FaChartLine className="text-3xl md:text-5xl mx-auto mb-2 md:mb-4" />
-              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">{counters.years}+</div>
+              <div className="text-2xl md:text-5xl font-bold mb-1 md:mb-2">
+                {counters.years}+
+              </div>
               <div className="text-sm md:text-lg opacity-90">Years</div>
             </div>
           </div>
