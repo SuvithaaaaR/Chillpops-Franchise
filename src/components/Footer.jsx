@@ -20,7 +20,9 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-pink-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg md:text-xl">C</span>
+                <span className="text-white font-bold text-lg md:text-xl">
+                  C
+                </span>
               </div>
               <span className="text-xl md:text-2xl font-bold">
                 Chill<span className="text-primary">Pops</span>
@@ -68,7 +70,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Quick Links</h3>
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
