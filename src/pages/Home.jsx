@@ -31,7 +31,9 @@ const Home = () => {
     { city: "Tenali", outlets: 2, color: "from-violet-500 to-fuchsia-600" },
   ];
 
+  const [hoveredLocation, setHoveredLocation] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [carPosition, setCarPosition] = useState(0);
   const [spaceScroll, setSpaceScroll] = useState(0);
   const [counters, setCounters] = useState({
     outlets: 0,
@@ -50,6 +52,7 @@ const Home = () => {
   });
   const parallaxRef = useRef(null);
   const spaceRef = useRef(null);
+  const locationsRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +70,14 @@ const Home = () => {
         const height = rect.height;
         const progress = Math.min(Math.max(scrolled / height, 0), 1);
         setSpaceScroll(progress);
+      }
+
+      if (locationsRef.current) {
+        const rect = locationsRef.current.getBoundingClientRect();
+        const scrolled = -rect.top;
+        const height = rect.height;
+        const progress = Math.min(Math.max(scrolled / height, 0), 1);
+        setCarPosition(progress);
       }
     };
 
@@ -355,23 +366,434 @@ const Home = () => {
         </div>
       </section>
       {/* Franchise Locations Background Section */}
-      <section id="locations-background" className="relative py-0">
-        {/* First Background Image */}
-        <div className="w-full">
+      <section id="locations-background" className="relative py-0" ref={locationsRef}>
+        {/* First Background Image - Karur to MKCE College */}
+        <div className="w-full relative">
           <img
             src={`${import.meta.env.BASE_URL}images/franchise-locations-1.png`}
             alt="ChillPops Franchise Locations - Map 1"
             className="w-full h-auto display-block"
           />
+          
+          {/* Animated Car - Scroll based */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+            <div 
+              className="absolute transition-all duration-100 text-6xl"
+              style={{
+                left: `${10 + carPosition * 60}%`,
+                top: `${20 + carPosition * 30}%`,
+                transform: `rotate(${-30 + carPosition * 35}deg)`,
+              }}
+            >
+              <FaTruck className="text-primary drop-shadow-lg" />
+            </div>
+          </div>
+
+          {/* Location Hotspot - Karur */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '12%', top: '35%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Karur', outlets: 8, manager: 'Rajesh Kumar', rating: 4.5 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Karur' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    K
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Karur</h3>
+                    <p className="text-sm text-gray-700">8 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.5) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Rajesh Kumar</p>
+                    <p className="text-xs text-gray-700">franchise@karur.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Location Hotspot - MKCE College */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '75%', top: '55%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'MKCE College, Karur', outlets: 1, manager: 'Priya Sharma', rating: 4.8 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'MKCE College, Karur' && (
+              <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    M
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">MKCE College</h3>
+                    <p className="text-sm text-gray-700">Karur Campus</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.8) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Campus Location</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Priya Sharma</p>
+                    <p className="text-xs text-gray-700">franchise@mkce.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Second Background Image */}
-        <div className="w-full">
+        {/* Second Background Image - Namakkal to Mumbai */}
+        <div className="w-full relative">
           <img
             src={`${import.meta.env.BASE_URL}images/franchise-locations-2.png`}
             alt="ChillPops Franchise Locations - Map 2"
             className="w-full h-auto display-block"
           />
+
+          {/* Location Hotspot - Namakkal */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '12%', top: '15%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Namakkal', outlets: 4, manager: 'Suresh Reddy', rating: 4.3 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Namakkal' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    N
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Namakkal</h3>
+                    <p className="text-sm text-gray-700">4 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.3) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Suresh Reddy</p>
+                    <p className="text-xs text-gray-700">franchise@namakkal.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Location Hotspot - Mumbai */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '50%', top: '45%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Mumbai', outlets: 10, manager: 'Amit Patel', rating: 4.7 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Mumbai' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    M
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Mumbai</h3>
+                    <p className="text-sm text-gray-700">10 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.7) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Amit Patel</p>
+                    <p className="text-xs text-gray-700">franchise@mumbai.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Third Background Image - Bangalore to Coimbatore */}
+        <div className="w-full relative">
+          <img
+            src={`${import.meta.env.BASE_URL}images/franchise-locations-3.jpg`}
+            alt="ChillPops Franchise Locations - Map 3"
+            className="w-full h-auto display-block"
+          />
+
+          {/* Location Hotspot - Bangalore */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '15%', top: '20%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Bangalore', outlets: 12, manager: 'Deepak Singh', rating: 4.9 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Bangalore' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    B
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Bangalore</h3>
+                    <p className="text-sm text-gray-700">12 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.9) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Deepak Singh</p>
+                    <p className="text-xs text-gray-700">franchise@bangalore.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Location Hotspot - Coimbatore */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '70%', top: '55%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Rathinam College, Coimbatore', outlets: 1, manager: 'Kumar Swamy', rating: 4.6 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Rathinam College, Coimbatore' && (
+              <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    R
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Rathinam College</h3>
+                    <p className="text-sm text-gray-700">Coimbatore</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.6) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Campus Location</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Kumar Swamy</p>
+                    <p className="text-xs text-gray-700">franchise@rathinam.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Fourth Background Image - Trichy to KRCT */}
+        <div className="w-full relative">
+          <img
+            src={`${import.meta.env.BASE_URL}images/franchise-locations-4.jpg`}
+            alt="ChillPops Franchise Locations - Map 4"
+            className="w-full h-auto display-block"
+          />
+
+          {/* Location Hotspot - Trichy */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '15%', top: '25%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Trichy', outlets: 5, manager: 'Vijay Krishna', rating: 4.4 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Trichy' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    T
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Trichy</h3>
+                    <p className="text-sm text-gray-700">5 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.4) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Vijay Krishna</p>
+                    <p className="text-xs text-gray-700">franchise@trichy.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Location Hotspot - KRCT Trichy */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '70%', top: '60%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'KRCT, Trichy', outlets: 1, manager: 'Anitha Ravi', rating: 4.7 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'KRCT, Trichy' && (
+              <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    K
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">KRCT</h3>
+                    <p className="text-sm text-gray-700">Trichy Campus</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.7) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Campus Location</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Anitha Ravi</p>
+                    <p className="text-xs text-gray-700">franchise@krct.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Fifth Background Image - Ongole to Tenali */}
+        <div className="w-full relative">
+          <img
+            src={`${import.meta.env.BASE_URL}images/franchise-locations-5.jpg`}
+            alt="ChillPops Franchise Locations - Map 5"
+            className="w-full h-auto display-block"
+          />
+
+          {/* Location Hotspot - Ongole */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '15%', top: '25%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Ongole, Andhra Pradesh', outlets: 3, manager: 'Ramesh Babu', rating: 4.2 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Ongole, Andhra Pradesh' && (
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-600 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    O
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Ongole</h3>
+                    <p className="text-sm text-gray-700">3 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.2) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Ramesh Babu</p>
+                    <p className="text-xs text-gray-700">franchise@ongole.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Location Hotspot - Tenali */}
+          <div 
+            className="absolute w-16 h-16 cursor-pointer z-10"
+            style={{ left: '70%', top: '55%' }}
+            onMouseEnter={() => setHoveredLocation({ name: 'Tenali, Andhra Pradesh', outlets: 2, manager: 'Lakshmi Devi', rating: 4.5 })}
+            onMouseLeave={() => setHoveredLocation(null)}
+          >
+            {hoveredLocation?.name === 'Tenali, Andhra Pradesh' && (
+              <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-400 to-pink-300 rounded-3xl shadow-2xl p-6 w-80 animate-fade-in z-50 border-4 border-black">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    T
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-black text-lg">Tenali</h3>
+                    <p className="text-sm text-gray-700">2 Outlets</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className={i < Math.floor(4.5) ? "text-yellow-400" : "text-gray-300"} />
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 min-h-[100px] flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Location Details</p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Lakshmi Devi</p>
+                    <p className="text-xs text-gray-700">franchise@tenali.com</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>{" "}
     </div>
