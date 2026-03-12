@@ -7,6 +7,7 @@ import FranchiseModel from "./pages/FranchiseModel";
 import Locations from "./pages/Locations";
 import Apply from "./pages/Apply";
 import Contact from "./pages/Contact";
+import ProfitAnalysis from "./pages/ProfitAnalysis";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/locations" element={<Locations />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/profit-analysis" element={<ProfitAnalysis />} />
           </Routes>
         </main>
         <Footer />

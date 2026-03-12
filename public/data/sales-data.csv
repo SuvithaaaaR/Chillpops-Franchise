@@ -1,0 +1,111 @@
+Month,Product Name,Quantity Sold,Revenue,Cost,Profit,Category,Location
+Jan,Classic Vanilla Popsicle,450,67500,40500,27000,Classic,Trichy
+Jan,Strawberry Delight,380,57000,34200,22800,Classic,Trichy
+Jan,Chocolate Fudge Bar,420,84000,50400,33600,Premium,Karur
+Jan,Mango Tango,520,78000,46800,31200,Classic,Bangalore
+Jan,Mint Chocolate Chip,310,62000,37200,24800,Premium,Mumbai
+Jan,Coconut Cream,290,58000,34800,23200,Premium,Coimbatore
+Feb,Classic Vanilla Popsicle,480,72000,43200,28800,Classic,Trichy
+Feb,Strawberry Delight,410,61500,36900,24600,Classic,Trichy
+Feb,Chocolate Fudge Bar,450,90000,54000,36000,Premium,Karur
+Feb,Mango Tango,550,82500,49500,33000,Classic,Bangalore
+Feb,Mint Chocolate Chip,340,68000,40800,27200,Premium,Mumbai
+Feb,Coconut Cream,320,64000,38400,25600,Premium,Coimbatore
+Feb,Berry Blast,280,56000,33600,22400,Specialty,Namakkal
+Mar,Classic Vanilla Popsicle,440,66000,39600,26400,Classic,Trichy
+Mar,Strawberry Delight,390,58500,35100,23400,Classic,Trichy
+Mar,Chocolate Fudge Bar,430,86000,51600,34400,Premium,Karur
+Mar,Mango Tango,510,76500,45900,30600,Classic,Bangalore
+Mar,Mint Chocolate Chip,320,64000,38400,25600,Premium,Mumbai
+Mar,Coconut Cream,300,60000,36000,24000,Premium,Coimbatore
+Mar,Berry Blast,290,58000,34800,23200,Specialty,Namakkal
+Mar,Lemon Sorbet,350,52500,31500,21000,Fruit,Ongole
+Apr,Classic Vanilla Popsicle,520,78000,46800,31200,Classic,Trichy
+Apr,Strawberry Delight,450,67500,40500,27000,Classic,Trichy
+Apr,Chocolate Fudge Bar,490,98000,58800,39200,Premium,Karur
+Apr,Mango Tango,610,91500,54900,36600,Classic,Bangalore
+Apr,Mint Chocolate Chip,370,74000,44400,29600,Premium,Mumbai
+Apr,Coconut Cream,340,68000,40800,27200,Premium,Coimbatore
+Apr,Berry Blast,320,64000,38400,25600,Specialty,Namakkal
+Apr,Lemon Sorbet,380,57000,34200,22800,Fruit,Ongole
+Apr,Watermelon Wave,290,43500,26100,17400,Fruit,Tenali
+May,Classic Vanilla Popsicle,500,75000,45000,30000,Classic,Trichy
+May,Strawberry Delight,430,64500,38700,25800,Classic,Trichy
+May,Chocolate Fudge Bar,470,94000,56400,37600,Premium,Karur
+May,Mango Tango,590,88500,53100,35400,Classic,Bangalore
+May,Mint Chocolate Chip,360,72000,43200,28800,Premium,Mumbai
+May,Coconut Cream,330,66000,39600,26400,Premium,Coimbatore
+May,Berry Blast,310,62000,37200,24800,Specialty,Namakkal
+May,Lemon Sorbet,370,55500,33300,22200,Fruit,Ongole
+May,Watermelon Wave,300,45000,27000,18000,Fruit,Tenali
+May,Pineapple Paradise,260,52000,31200,20800,Premium,Trichy
+Jun,Classic Vanilla Popsicle,580,87000,52200,34800,Classic,Trichy
+Jun,Strawberry Delight,490,73500,44100,29400,Classic,Trichy
+Jun,Chocolate Fudge Bar,530,106000,63600,42400,Premium,Karur
+Jun,Mango Tango,670,100500,60300,40200,Classic,Bangalore
+Jun,Mint Chocolate Chip,410,82000,49200,32800,Premium,Mumbai
+Jun,Coconut Cream,380,76000,45600,30400,Premium,Coimbatore
+Jun,Berry Blast,350,70000,42000,28000,Specialty,Namakkal
+Jun,Lemon Sorbet,420,63000,37800,25200,Fruit,Ongole
+Jun,Watermelon Wave,340,51000,30600,20400,Fruit,Tenali
+Jun,Pineapple Paradise,300,60000,36000,24000,Premium,Trichy
+Jul,Classic Vanilla Popsicle,620,93000,55800,37200,Classic,Trichy
+Jul,Strawberry Delight,530,79500,47700,31800,Classic,Trichy
+Jul,Chocolate Fudge Bar,570,114000,68400,45600,Premium,Karur
+Jul,Mango Tango,710,106500,63900,42600,Classic,Bangalore
+Jul,Mint Chocolate Chip,440,88000,52800,35200,Premium,Mumbai
+Jul,Coconut Cream,410,82000,49200,32800,Premium,Coimbatore
+Jul,Berry Blast,380,76000,45600,30400,Specialty,Namakkal
+Jul,Lemon Sorbet,450,67500,40500,27000,Fruit,Ongole
+Jul,Watermelon Wave,370,55500,33300,22200,Fruit,Tenali
+Jul,Pineapple Paradise,330,66000,39600,26400,Premium,Trichy
+Aug,Classic Vanilla Popsicle,590,88500,53100,35400,Classic,Trichy
+Aug,Strawberry Delight,510,76500,45900,30600,Classic,Trichy
+Aug,Chocolate Fudge Bar,550,110000,66000,44000,Premium,Karur
+Aug,Mango Tango,680,102000,61200,40800,Classic,Bangalore
+Aug,Mint Chocolate Chip,430,86000,51600,34400,Premium,Mumbai
+Aug,Coconut Cream,390,78000,46800,31200,Premium,Coimbatore
+Aug,Berry Blast,360,72000,43200,28800,Specialty,Namakkal
+Aug,Lemon Sorbet,440,66000,39600,26400,Fruit,Ongole
+Aug,Watermelon Wave,360,54000,32400,21600,Fruit,Tenali
+Aug,Pineapple Paradise,320,64000,38400,25600,Premium,Trichy
+Sep,Classic Vanilla Popsicle,640,96000,57600,38400,Classic,Trichy
+Sep,Strawberry Delight,550,82500,49500,33000,Classic,Trichy
+Sep,Chocolate Fudge Bar,590,118000,70800,47200,Premium,Karur
+Sep,Mango Tango,730,109500,65700,43800,Classic,Bangalore
+Sep,Mint Chocolate Chip,460,92000,55200,36800,Premium,Mumbai
+Sep,Coconut Cream,430,86000,51600,34400,Premium,Coimbatore
+Sep,Berry Blast,390,78000,46800,31200,Specialty,Namakkal
+Sep,Lemon Sorbet,470,70500,42300,28200,Fruit,Ongole
+Sep,Watermelon Wave,380,57000,34200,22800,Fruit,Tenali
+Sep,Pineapple Paradise,340,68000,40800,27200,Premium,Trichy
+Oct,Classic Vanilla Popsicle,680,102000,61200,40800,Classic,Trichy
+Oct,Strawberry Delight,590,88500,53100,35400,Classic,Trichy
+Oct,Chocolate Fudge Bar,630,126000,75600,50400,Premium,Karur
+Oct,Mango Tango,770,115500,69300,46200,Classic,Bangalore
+Oct,Mint Chocolate Chip,490,98000,58800,39200,Premium,Mumbai
+Oct,Coconut Cream,460,92000,55200,36800,Premium,Coimbatore
+Oct,Berry Blast,420,84000,50400,33600,Specialty,Namakkal
+Oct,Lemon Sorbet,500,75000,45000,30000,Fruit,Ongole
+Oct,Watermelon Wave,410,61500,36900,24600,Fruit,Tenali
+Oct,Pineapple Paradise,370,74000,44400,29600,Premium,Trichy
+Nov,Classic Vanilla Popsicle,650,97500,58500,39000,Classic,Trichy
+Nov,Strawberry Delight,570,85500,51300,34200,Classic,Trichy
+Nov,Chocolate Fudge Bar,610,122000,73200,48800,Premium,Karur
+Nov,Mango Tango,750,112500,67500,45000,Classic,Bangalore
+Nov,Mint Chocolate Chip,480,96000,57600,38400,Premium,Mumbai
+Nov,Coconut Cream,450,90000,54000,36000,Premium,Coimbatore
+Nov,Berry Blast,410,82000,49200,32800,Specialty,Namakkal
+Nov,Lemon Sorbet,490,73500,44100,29400,Fruit,Ongole
+Nov,Watermelon Wave,400,60000,36000,24000,Fruit,Tenali
+Nov,Pineapple Paradise,360,72000,43200,28800,Premium,Trichy
+Dec,Classic Vanilla Popsicle,720,108000,64800,43200,Classic,Trichy
+Dec,Strawberry Delight,620,93000,55800,37200,Classic,Trichy
+Dec,Chocolate Fudge Bar,660,132000,79200,52800,Premium,Karur
+Dec,Mango Tango,810,121500,72900,48600,Classic,Bangalore
+Dec,Mint Chocolate Chip,520,104000,62400,41600,Premium,Mumbai
+Dec,Coconut Cream,480,96000,57600,38400,Premium,Coimbatore
+Dec,Berry Blast,440,88000,52800,35200,Specialty,Namakkal
+Dec,Lemon Sorbet,520,78000,46800,31200,Fruit,Ongole
+Dec,Watermelon Wave,430,64500,38700,25800,Fruit,Tenali
+Dec,Pineapple Paradise,390,78000,46800,31200,Premium,Trichy

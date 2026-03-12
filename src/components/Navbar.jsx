@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +47,7 @@ const Navbar = () => {
     { path: "#locations", label: "Locations" },
     { path: "#apply", label: "Apply Now" },
     { path: "#contact", label: "Contact" },
+    { path: "/profit-analysis", label: "Profit Analysis", isRoute: true },
   ];
 
   return (
@@ -69,18 +72,33 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
-                key={link.path}
-                href={link.path}
-                onClick={handleNavClick}
-                className={`font-medium transition-colors duration-300 ${
-                  activeSection === link.path
-                    ? "text-primary"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={handleNavClick}
+                  className={`font-medium transition-colors duration-300 ${
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-gray-700 hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  onClick={handleNavClick}
+                  className={`font-medium transition-colors duration-300 ${
+                    activeSection === link.path
+                      ? "text-primary"
+                      : "text-gray-700 hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </div>
 
@@ -98,18 +116,33 @@ const Navbar = () => {
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.path}
-                  href={link.path}
-                  onClick={handleNavClick}
-                  className={`font-medium py-2 transition-colors duration-300 ${
-                    activeSection === link.path
-                      ? "text-primary"
-                      : "text-gray-700 hover:text-primary"
-                  }`}
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={handleNavClick}
+                    className={`font-medium py-2 transition-colors duration-300 ${
+                      location.pathname === link.path
+                        ? "text-primary"
+                        : "text-gray-700 hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.path}
+                    href={link.path}
+                    onClick={handleNavClick}
+                    className={`font-medium py-2 transition-colors duration-300 ${
+                      activeSection === link.path
+                        ? "text-primary"
+                        : "text-gray-700 hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
             </div>
           </div>
